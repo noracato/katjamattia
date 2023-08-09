@@ -1,0 +1,8 @@
+.list
+  - @guests.each do |guest|
+    .row.guest
+      .name= guest.name
+      =link_to "Delete", guest_path(guest), method: :delete, data: { turbo_method: :delete }
+
+%a{ href: new_guest_path }= "new"
+
