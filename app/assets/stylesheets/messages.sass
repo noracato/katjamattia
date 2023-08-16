@@ -8,22 +8,42 @@
     font-family: "Helvetica"
     font-size: 1.5rem
     font-weight: 200
-    // scroll
     overflow-y: scroll
+    padding: 1rem
 
     .col.message-container
       margin-bottom: 1rem
 
+      .name
+        margin-bottom: 1rem
+        border-bottom: 1px solid black
+        padding-bottom: 0.5rem
       .time
         margin-left: auto
+      .message
+        font-family: "LoveWeb-Regular"
+        margin-bottom: 0.5rem
+        border-bottom: 1px solid black
+        padding-bottom: 1rem
 
   .add-message
     font-family: "Helvetica"
     font-size: 1.5rem
     font-weight: 200
-    min-height: 15vh
+    // min-height: 15vh
     width: 100vw
     position: fixed
     bottom: 0
+    padding: 1rem 10%
+    .textbox, .namebox, .row
+      border: none
+      width: 80%
     .textbox
       height: 10vh
+      margin: 0 auto
+      font-family: "Helvetica"
+      border-top: 1px solid black
+    .button-send
+      border: none
+      margin: 0 auto
+      padding: 2rem

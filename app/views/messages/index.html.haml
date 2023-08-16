@@ -1,17 +1,14 @@
-.title messages
-
 -# controller that fetches updates
 .list-messages.col
   - @messages.each do |message|
     .col.message-container
-      .row
-        .name= message.name
-        .time= message.created_at
-      .row
-        .message= message.message
+      .row.name= message.name
+      .row.message= message.message
+      .row.time= message.created_at.strftime("%H:%M")
 
-.add-message.white-bg
+.add-message.white-bg.col
   = simple_form_for :message, remote: true do |f|
-    = f.input :name, input_html: { class: 'form-control-lg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-    = f.input :message, as: :text, input_html: { class: 'textbox' }, grid_wrapper_html: { class: 'col-sm-6 '}
-    = f.button :submit, "Send", class: 'btn btn-success btn-lg'
+    = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+    = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+    .row
+      = f.button :submit, "Send", class: 'button-send blue-bg'
