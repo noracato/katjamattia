@@ -1,8 +1,11 @@
-.list
+.title GuEsts
+
+.list-guests.col
   - @guests.each do |guest|
     .row.guest
       .name= guest.name
-      =link_to "Delete", guest_path(guest), method: :delete, data: { turbo_method: :delete }
+      .del=link_to "X", guest_path(guest), method: :delete, data: { turbo_method: :delete }
 
-%a{ href: new_guest_path }= "new"
+.blue-bg.row.button-bottom
+  %a{ href: new_guest_path }= "new"
 

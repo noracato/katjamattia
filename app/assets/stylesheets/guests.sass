@@ -1,0 +1,35 @@
+.container:has(> .list-guests)
+  background: $orange
+  justify-content: space-between
+
+  .title
+    font-size: 7rem
+
+  .del
+    margin-left: auto
+    a
+      color: white
+
+  .row.guest
+    border-bottom: 1px solid black
+    font-family: "Helvetica"
+    font-size: 2rem
+    font-weight: 200
+
+  .row.point-add
+    margin-top: 1rem
+
+  .dirty
+    background-color: $purple
+
+  .button
+    padding: 1rem
+    font-family: "Helvetica"
+    font-size: 1.5rem
+    font-weight: 200
+    border-radius: 0.5rem
+    &.submit
+      margin-left: auto
+    &.subtract
+      margin-left: 1.5rem
+

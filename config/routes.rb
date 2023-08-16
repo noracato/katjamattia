@@ -5,6 +5,15 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get '/ranking', to: 'ranking#index'
+  get '/ranking/live', to: 'ranking#live'
 
   resources :guests, only: [:index, :create, :new, :destroy]
+
+  resources :guests do
+    get :points, on: :collection
+
+    member do
+      post :add_points
+    end
+  end
 end

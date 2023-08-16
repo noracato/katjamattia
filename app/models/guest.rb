@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class Guest < ApplicationRecord
+  has_many :point_events
   scope :ranked, -> { order('`points` DESC') }
 
   def add_points(number)
-    points += number
-  end
+    if self.points + number < 0
+      number = -self.points
+    end
 
-  def subtract_points(number)
-    points -= number
+    self.points += number
 
-    points = 0 if points < 0
+    point_events.create!(points: number)
   end
 end

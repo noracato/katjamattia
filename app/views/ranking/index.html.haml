@@ -1,5 +1,24 @@
-.list
-  - @guests.each do |guest|
-    .row.guest
-      .name= guest.name
-      .points= guest.points
+.title GAMe
+
+.ranking{ data: {controller: 'game', endpoint: ranking_live_path, lastchange: @last_change_id}}
+  - @guests.each_with_index do |guest, index|
+    .guest.col{id: guest.id}
+      .top.row
+        .index= "# #{index + 1}"
+        .points= guest.points
+      .bottom.row
+        .name= guest.name
+        .points points
+
+  .added-points.hidden.overlay.green-bg{ data: {game: {target: 'add' }}}
+    .name{ data: {game: {target: 'addName' }}}
+    .points{ data: {game: {target: 'addPoints' }}}
+  .removed-points.hidden.overlay.blue-bg{ data: {game: {target: 'removed' }}}
+    .name{ data: {game: {target: 'removedName' }}}
+    .points{ data: {game: {target: 'removedPoints' }}}
+
+.row.wtf
+  = link_to root_path do
+    .back-button
+  .question WTF?
+

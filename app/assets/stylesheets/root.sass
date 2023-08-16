@@ -12,8 +12,25 @@ body
   padding: 0
   margin: 0
 
+  .container
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    height: 100vh
+
+    .row
+      display: flex
+      flex-direction: row
+
+    .col
+      display: flex
+      flex-direction: column
+
 .purple-bg
   background: $purple
+
+.blue-bg
+  background: $blue
 
 .green-bg
   background: $green
@@ -21,13 +38,20 @@ body
 .orange-bg
   background: $orange
 
+.white-bg
+  background: $light
+
 .bar
-  padding: 0.8rem 0 0 0.8rem
+  padding: 1.5rem 0 0 0.2rem
+  line-height: 0.8
 
 .logo
-  background: url('logo.svg') no-repeat
-  height: 100px
+  background: url('logo.svg') no-repeat center
+  height: 9rem
 
+.names
+  background: url('katja_mattia.svg') no-repeat center
+  height: 8rem
 a
   text-decoration: none
   color: black
@@ -36,3 +60,5 @@ a
   &:active
     color: black
 
+.button-bottom
+  height: 15vh

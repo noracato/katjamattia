@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_132812) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_032010) do
   create_table "guests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 191
     t.integer "points", default: 0, null: false
@@ -18,4 +18,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_132812) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "point_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "guest_id", null: false
+    t.integer "points", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_point_events_on_guest_id"
+  end
+
+  add_foreign_key "point_events", "guests"
 end
