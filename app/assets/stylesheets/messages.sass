@@ -1,0 +1,29 @@
+.container:has(> .list-messages)
+  background: $orange
+  justify-content: normal
+  // none
+  overflow: hidden
+
+  .list-messages
+    font-family: "Helvetica"
+    font-size: 1.5rem
+    font-weight: 200
+    // scroll
+    overflow-y: scroll
+
+    .col.message-container
+      margin-bottom: 1rem
+
+      .time
+        margin-left: auto
+
+  .add-message
+    font-family: "Helvetica"
+    font-size: 1.5rem
+    font-weight: 200
+    min-height: 15vh
+    width: 100vw
+    position: fixed
+    bottom: 0
+    .textbox
+      height: 10vh

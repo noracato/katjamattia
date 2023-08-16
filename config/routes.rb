@@ -16,4 +16,9 @@ Rails.application.routes.draw do
       post :add_points
     end
   end
+
+  resources :messages, only: [:index, :create]
+  resources :messages do
+    get :live, on: :collection
+  end
 end

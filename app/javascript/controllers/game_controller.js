@@ -5,7 +5,11 @@ export default class extends Controller {
 
   connect() {
     this.last_change_id = this.element.getAttribute('data-lastchange');
-    setInterval(this.getNewRank.bind(this), 5000);
+    this.interval = setInterval(this.getNewRank.bind(this), 5000);
+  }
+
+  disconnect() {
+    clearInterval(this.interval);
   }
 
   getNewRank() {
