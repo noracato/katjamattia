@@ -1,7 +1,7 @@
 class RankingController < ApplicationController
   def index
     @guests = Guest.ranked
-    @last_change_id = PointEvent.last.id
+    @last_change_id = PointEvent.last&.id || 0
   end
 
   def live

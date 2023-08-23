@@ -2,7 +2,7 @@
 
 class Guest < ApplicationRecord
   has_many :point_events
-  scope :ranked, -> { order('`points` DESC') }
+  scope :ranked, -> { order(points: :desc) }
 
   def add_points(number)
     if self.points + number < 0

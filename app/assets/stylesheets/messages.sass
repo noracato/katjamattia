@@ -1,9 +1,12 @@
-.container:has(> .list-messages)
+.container:has(> .messages-container)
   background: $orange
   justify-content: normal
-  // none
   overflow: hidden
-
+  .messages-container
+    justify-content: normal
+    overflow: hidden
+    display: flex
+    flex-direction: column
   .list-messages
     font-family: "Helvetica"
     font-size: 1.5rem

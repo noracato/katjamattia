@@ -1,14 +1,16 @@
 -# controller that fetches updates
-.list-messages.col
-  - @messages.each do |message|
-    .col.message-container
-      .row.name= message.name
-      .row.message= message.message
-      .row.time= message.created_at.strftime("%H:%M")
+.messages-container{data: {controller: 'messages', endpoint: live_messages_path, lastmessage: @messages.first.id}}
+  .list-messages.col{data: {messages: {target: 'list'}}}
+    - @messages.each do |message|
+      .col.message-container
+        .row.name= message.name
+        .row.message= message.message
+        .row.time= message.created_at.in_time_zone('CET').strftime("%H:%M")
 
-.add-message.white-bg.col
-  = simple_form_for :message, remote: true do |f|
-    = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-    = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-    .row
-      = f.button :submit, "Send", class: 'button-send blue-bg'
+  .add-message.white-bg.col
+    = simple_form_for :message, remote: true, html: {'data-target': 'messages.form'} do |f|
+      = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+      = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+      .row
+        -# should we do this wihout it being the button and just assgin the controller stuff?
+        = f.button :submit, "Send", class: 'button-send blue-bg', input_html: {"data-action": "click->messages#submitForm"}
