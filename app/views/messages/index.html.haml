@@ -7,7 +7,7 @@
         .row.message= message.message
         .row.time= message.created_at.in_time_zone('CET').strftime("%H:%M")
 
-  .add-message.white-bg.col{data: {messages: {target: 'footer'}}}
+  .add-message.white-bg.col.sticky{data: {messages: {target: 'footer'}}}
     .blocky.dark-bg
     .blocky.keep-right.dark-bg
     .form.col

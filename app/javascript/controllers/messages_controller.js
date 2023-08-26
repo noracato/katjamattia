@@ -12,7 +12,7 @@ export default class extends Controller {
   setHeight() {
     let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     let footerHeight = this.footerTarget.clientHeight
-    this.listTarget.style.height = (h - footerHeight - 10) + "px"
+    this.listTarget.style.margin =  "0 0 " + footerHeight + "px 0"
   }
 
   disconnect() {
