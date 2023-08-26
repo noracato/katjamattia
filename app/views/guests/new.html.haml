@@ -1,7 +1,12 @@
-= simple_form_for @guest do |f|
-  = f.input :name, input_html: { class: 'form-control-lg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-  = f.number_field :points, input_html: { class: 'form-control-lg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+.title add guest
 
-  = f.button :submit,  class: 'btn btn-success btn-lg' do
-    Save Person
-  = link_to('Cancel', guests_path, class: 'ms-2 btn btn-lg btn-light text-muted')
+.add-guest
+  = simple_form_for @guest, class: 'col' do |f|
+    = f.input :name
+    .row
+      starting points
+      = f.number_field :points, input_html: { class: 'form-control-lg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+
+    = f.button :submit, class: 'btn btn-success btn-lg' do
+      Save Person
+    = link_to('Cancel', guests_path, class: 'button cancel blue-bg')

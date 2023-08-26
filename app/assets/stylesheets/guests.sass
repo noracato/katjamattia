@@ -46,3 +46,22 @@
       padding-top: 0.5rem
       padding-bottom: 0.5rem
 
+.container:has(> .add-guest)
+  background: $orange
+  justify-content: normal
+  .add-guest
+    padding: 2rem
+    font-family: "Helvetica"
+    font-size: 2rem
+    font-weight: 200
+
+    .button
+      font-size: 1rem
+      color: $dark
+      padding: 0.5rem
+      border: none
+      font-weight: 400
+      border-radius: 0.5rem
+      &.cancel
+        margin-left: 1rem
+        color: $light
