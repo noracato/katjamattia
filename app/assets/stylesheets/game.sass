@@ -5,6 +5,10 @@
 
   .ranking
     margin-bottom: 100px
+    overflow: scroll
+    .listings:
+      height: 100%
+      margin-bottom: 100px
 
 .title
   font-size: 11rem
@@ -78,6 +82,17 @@
     transform-origin: center
     &.active
       animation: face 2s
+  &.wtf-desc
+    top: 0
+    transition: top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+    &.hidden
+      top: 100vh
+      height: 0
+    .col
+      padding: 2rem
+    .exit
+      margin-left: auto
+      color: $light
 
 .row.wtf
   &.hidden

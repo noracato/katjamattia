@@ -10,7 +10,7 @@
         .bottom.row
           .name= guest.name
           .points
-  .added-points.hidden.overlay.blue-bg{ data: {game: {target: 'add' }}}
+  .added-points.overlay.blue-bg.hidden{ data: {game: {target: 'add' }}}
     .points{ data: {game: {target: 'addPoints' }}}
     .icon.star
       :plain
@@ -29,7 +29,7 @@
         </svg>
     .col.sticky.purple-bg
       .name{ data: {game: {target: 'addName' }}}
-  .removed-points.hidden.overlay.green-bg{ data: {game: {target: 'removed' }}}
+  .removed-points.overlay.green-bg.hidden{ data: {game: {target: 'removed' }}}
     .points{ data: {game: {target: 'removedPoints' }}}
     .icon.face
       :plain
@@ -50,6 +50,11 @@
         </svg>
     .col.sticky.purple-bg
       .name{ data: {game: {target: 'removedName' }}}
+
+  .wtf-desc.hidden.overlay.blue-bg{ data: {game: {target: 'wtf' }}}
+    .col
+      .exit{data: {action: 'click->game#wtfGone'}} X
+      what is going on???
   .row.wtf.blue-bg.sticky{data: {game: {target: 'footer'}}}
     = link_to root_path, class: 'back-button white-bg' do
       .border-left-down
@@ -68,5 +73,5 @@
                 <polygon class="cls-1" points="11.8 0 0 11.8 11.8 23.6 11.8 0"/>
               </g>
             </svg>
-    .question WTF?
+    .question{data: {action: 'click->game#wtf'}} WTF?
 

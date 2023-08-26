@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['addPoints', 'addName', 'add', 'removedPoints', 'removedName', 'removed', 'listings', 'footer'];
+  static targets = ['addPoints', 'addName', 'add', 'removedPoints', 'removedName', 'removed', 'listings', 'footer', 'wtf'];
 
   connect() {
     this.last_change_id = this.element.getAttribute('data-lastchange');
@@ -68,6 +68,13 @@ export default class extends Controller {
         guest.querySelector('.index').textContent = "#" + (i + 1);
         this.listingsTarget.appendChild(guest);
     }
+  }
+
+  wtf(){
+    this.wtfTarget.classList.remove('hidden');
+  }
+  wtfGone(){
+    this.wtfTarget.classList.add('hidden')
   }
 
 }
