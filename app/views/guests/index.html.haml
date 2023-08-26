@@ -6,6 +6,10 @@
       .name= guest.name
       .del=link_to "X", guest_path(guest), method: :delete, data: { turbo_method: :delete }
 
-.blue-bg.row.button-bottom
-  %a{ href: new_guest_path }= "new"
+.col.sticky
+  .white-bg.row
+    %a{ href: points_guests_path }= "Scores"
+  .blue-bg.row
+    %a{ href: new_guest_path }= "new"
+
 

@@ -7,10 +7,10 @@
         .name= guest.name
         .points{ data: {scoring: { target: 'points'}, points: guest.points} }= guest.points
       .row.point-add
-        .button.add.white-bg{data: {scoring: {target: 'add' }}} +
-        .button.subtract.white-bg{data: {scoring: { target: 'subtract' }}} -
-        .button.submit.white-bg{data: {scoring: { target: 'submit' }, postto: add_points_guest_path(guest.id)}} submit
+        .button.add.dark-bg{data: {scoring: {target: 'add' }}} +
+        .button.subtract.dark-bg{data: {scoring: { target: 'subtract' }}} -
+        .button.submit.dark-bg{data: {scoring: { target: 'submit' }, postto: add_points_guest_path(guest.id)}} submit
 
 =link_to guests_path do
-  .blue-bg.row.button-bottom
-    manage guests
+  .blue-bg.row.sticky
+    back
