@@ -1,14 +1,15 @@
 .title GAMe
 
 .ranking{ data: {controller: 'game', endpoint: ranking_live_path, lastchange: @last_change_id}}
-  - @guests.each_with_index do |guest, index|
-    .guest.col{id: guest.id}
-      .top.row
-        .index= "# #{index + 1}"
-        .points= guest.points
-      .bottom.row
-        .name= guest.name
-        .points points
+  .listings{data: {game: {target: 'listings'}}}
+    - @guests.each_with_index do |guest, index|
+      .guest.col{id: guest.id}
+        .top.row
+          .index= "# #{index + 1}"
+          .points= guest.points
+        .bottom.row
+          .name= guest.name
+          .points points
 
   .added-points.hidden.overlay.green-bg{ data: {game: {target: 'add' }}}
     .name{ data: {game: {target: 'addName' }}}
@@ -17,23 +18,23 @@
     .name{ data: {game: {target: 'removedName' }}}
     .points{ data: {game: {target: 'removedPoints' }}}
 
-.row.wtf.blue-bg.sticky
-  = link_to root_path, class: 'back-button white-bg' do
-    .border-left-down
-      .inner
-        :plain
-          <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.8 23.6">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #1e1e1e;
-                  stroke-width: 0px;
-                }
-              </style>
-            </defs>
-            <g id="Layer_1-2" data-name="Layer 1">
-              <polygon class="cls-1" points="11.8 0 0 11.8 11.8 23.6 11.8 0"/>
-            </g>
-          </svg>
-  .question WTF?
+  .row.wtf.blue-bg.sticky{data: {game: {target: 'footer'}}}
+    = link_to root_path, class: 'back-button white-bg' do
+      .border-left-down
+        .inner
+          :plain
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.8 23.6">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #1e1e1e;
+                    stroke-width: 0px;
+                  }
+                </style>
+              </defs>
+              <g id="Layer_1-2" data-name="Layer 1">
+                <polygon class="cls-1" points="11.8 0 0 11.8 11.8 23.6 11.8 0"/>
+              </g>
+            </svg>
+    .question WTF?
 

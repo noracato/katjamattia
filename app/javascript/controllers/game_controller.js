@@ -1,11 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['addPoints', 'addName', 'add', 'removedPoints', 'removedName', 'removed', ];
+  static targets = ['addPoints', 'addName', 'add', 'removedPoints', 'removedName', 'removed', 'footer', 'listings'];
 
   connect() {
     this.last_change_id = this.element.getAttribute('data-lastchange');
     this.interval = setInterval(this.getNewRank.bind(this), 5000);
+    this.setHeight()
+    }
+
+  setHeight() {
+    let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    let footerHeight = this.footerTarget.clientHeight
+    this.listingsTarget.style.height = (h - footerHeight - 10) + "px"
   }
 
   disconnect() {
@@ -48,18 +55,20 @@ export default class extends Controller {
         this.removedPointsTarget.textContent = last_change_data['points'];
         this.removedTarget.classList.remove('hidden');
     }
+    this.footerTarget.classList.add('hidden');
   }
 
   removeOverlays() {
     this.addTarget.classList.add('hidden');
     this.removedTarget.classList.add('hidden');
+    this.footerTarget.classList.remove('hidden');
   }
 
   reorderPeople(order_data) {
     for (let i = 0; i < order_data.length; i++){
         let guest = document.getElementById(order_data[i]['id']);
         guest.querySelector('.index').textContent = "#" + (i + 1);
-        this.element.appendChild(guest);
+        this.listingsTarget.appendChild(guest);
     }
   }
 
