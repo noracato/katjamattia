@@ -12,16 +12,9 @@ export default class extends Controller {
     clearInterval(this.interval);
   }
 
-  submitForm(){
-    Rails.fire(this.formTarget, 'submit')
+  handleSubmit(){
     this.formTarget.reset()
     this.getNewMessage();
-  }
-
-  onPostSuccess(event) {
-    console.log("success!")
-    this.getNewMessage();
-    this.formTarget.reset()
   }
 
   getNewMessage(){
