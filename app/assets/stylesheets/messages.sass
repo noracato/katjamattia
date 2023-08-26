@@ -9,10 +9,10 @@
     flex-direction: column
   .list-messages
     font-family: "Helvetica"
-    font-size: 1.5rem
     font-weight: 200
+    font-size: 1.5rem
     overflow-y: scroll
-    padding: 1rem
+    padding: 1.7rem
 
     .col.message-container
       margin-bottom: 1rem
@@ -22,12 +22,17 @@
         margin-bottom: 1rem
         border-bottom: 1px solid $dark
         padding-bottom: 0.5rem
+        font-size: 2.2rem
       .time
         margin-left: auto
+        border-radius: 100%
+        border: 1px solid $dark
+        padding: 0.7rem
       .message
         margin-bottom: 0.5rem
         border-bottom: 1px solid $dark
         padding-bottom: 1rem
+        font-size: 1.28rem
 
   .add-message
     font-family: "Helvetica"
@@ -39,21 +44,45 @@
     position: fixed
     bottom: 0
     .form
-      padding: 1rem 10% 0 10%
+      padding-top: 1.7rem
       width: 100vw
     .textbox, .namebox, .row
       border: none
-      width: 80%
+      width: calc( 100vw - 3.4rem - 8px)
       font-size: 1.5rem !important
       border-radius: 0
+      margin: 0 auto
+
+    .textbox, .namebox
+      background: #fff
+      padding: 4px
+
+      &:focus, &:active
+        border: none
+        box-shadow: 0 0 0 0 transparent
+        resize: none
+
     .textbox
       height: 10vh
-      margin: 0 auto
+      margin: 2px auto 0 auto
       font-family: "Helvetica"
-      border-top: 1px solid $dark
+
+    .input:has(> textarea), .input:has(> input)
+      display: flex
+      flex-direction: column
+
+    .back
+      margin: 0 0 0 auto
+
+      padding: 2px 2px 2px 0
+      .inner
+        padding: 0.6rem 1.4rem
+        width: 20px
+        border-bottom: 1px solid $dark
+        border-left: 1px solid $dark
     .button-send
       border: none
-      margin: 0 auto
+      margin: 0 auto 0 0
       padding: 1rem 2rem
       border-radius: 0
       font-size: 1.5rem !important

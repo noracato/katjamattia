@@ -15,4 +15,20 @@
         = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
         = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
         .row
+          = link_to root_path, class: 'back' do
+            .inner
+              :plain
+                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.8 23.6">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #1e1e1e;
+                        stroke-width: 0px;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <polygon class="cls-1" points="11.8 0 0 11.8 11.8 23.6 11.8 0"/>
+                  </g>
+                </svg>
           = f.button :submit, "Send", class: 'button-send blue-bg'

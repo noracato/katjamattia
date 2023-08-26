@@ -2,18 +2,18 @@
 .container:has(> .ranking)
   background: $purple
   justify-content: space-between
-  overflow: hidden
 
   .ranking
-    overflow: scroll
+    margin-bottom: 100px
 
 .title
   font-size: 11rem
   color: $light
-  margin-bottom: 2rem
+  margin-bottom: 1rem
 
 .guest
   padding: 1rem
+  margin-bottom: 0.5rem
 
   .points
     margin-left: auto
@@ -29,8 +29,7 @@
 .highlight
   color: $light
 
-.hidden
-  display: none
+
 
 .overlay
   position: absolute
@@ -38,10 +37,53 @@
   left: 0
   height: 100vh
   width: 100vw
+  overflow: hidden
+  opacity: 100%
+  transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+
+  &.hidden
+    opacity: 0
+
+  .points
+    font-size: 20rem
+    z-index: 20
+    position: absolute
+
+  .col:has(> .name)
+    padding: 3rem 0 2rem 0
+
+  .name
+    font-family: "Helvetica"
+    font-size: 4rem
+    font-weight: 100
+    margin: 0 auto
+
+  .star
+    position: absolute
+    width: 120vw
+    left: -10vw
+    bottom: -10vw
+    transform-origin: center
+    &.active
+      animation: star 2s
+  .face
+    position: absolute
+    width: 80vw
+    left: 10vw
+    bottom: 9rem
+    transition-property: bottom
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06)
+    transform-origin: center
+    &.active
+      animation: face 2s
 
 .row.wtf
   &.hidden
     display: none
+
+  height: 100px
 
   .back-button
     padding: 0.25rem
@@ -56,3 +98,23 @@
     color: $light
     font-size: 6rem
     padding: 0.3rem 1rem
+
+  @keyframes star
+    from
+      bottom: -10vw
+    to
+      bottom: 40vh
+      transform: rotate(-80deg)
+
+  @keyframes face
+    from
+      bottom: 9rem
+    40%
+      bottom: 10rem
+    50%
+      bottom: 9.5rem
+    90%
+      bottom: 10rem
+    to
+      bottom: 9rem
+
