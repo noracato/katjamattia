@@ -7,9 +7,12 @@
         .row.message= message.message
         .row.time= message.created_at.in_time_zone('CET').strftime("%H:%M")
 
-  .add-message.white-bg.col
-    = simple_form_for :message, remote: true, html: {'data-messages-target': 'form', 'data-action': "turbo:submit-end->messages#handleSubmit"} do |f|
-      = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-      = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-      .row
-        = f.button :submit, "Send", class: 'button-send blue-bg'
+  .add-message.white-bg.col{data: {messages: {target: 'footer'}}}
+    .blocky.dark-bg
+    .blocky.keep-right.dark-bg
+    .form.col
+      = simple_form_for :message, remote: true, html: {'data-messages-target': 'form', 'data-action': "turbo:submit-end->messages#handleSubmit"} do |f|
+        = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+        = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+        .row
+          = f.button :submit, "Send", class: 'button-send blue-bg'

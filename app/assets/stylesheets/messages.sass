@@ -37,7 +37,9 @@
     width: 100vw
     position: fixed
     bottom: 0
-    padding: 1rem 10%
+    .form
+      padding: 1rem 10% 0 10%
+      width: 100vw
     .textbox, .namebox, .row
       border: none
       width: 80%
@@ -50,3 +52,10 @@
       border: none
       margin: 0 auto
       padding: 2rem
+
+    .blocky
+      height: 1.6rem
+      width: 1.6rem
+      position: absolute
+      &.keep-right
+        right: 0

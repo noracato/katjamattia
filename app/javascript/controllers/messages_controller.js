@@ -1,11 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['list', 'form']
+  static targets = ['list', 'form', 'footer']
 
   connect() {
     this.last_message_id = this.element.getAttribute('data-lastmessage');
     this.interval = setInterval(this.getNewMessage.bind(this), 5000);
+    this.setHeight()
+  }
+
+  setHeight() {
+    let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    let footerHeight = this.footerTarget.clientHeight
+    console.log(h)
+    console.log(footerHeight)
+    this.listTarget.style.height = (h - footerHeight - 10) + "px"
   }
 
   disconnect() {
