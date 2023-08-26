@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
   private
 
   def last_message
-    Message.last.as_json
+    Message.last&.as_json
   end
 
   def message_params

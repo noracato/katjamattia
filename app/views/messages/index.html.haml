@@ -1,5 +1,5 @@
 -# controller that fetches updates
-.messages-container{data: {controller: 'messages', endpoint: live_messages_path, lastmessage: @messages.first.id}}
+.messages-container{data: {controller: 'messages', endpoint: live_messages_path, lastmessage: @messages.first&.id || 0}}
   .list-messages.col{data: {messages: {target: 'list'}}}
     - @messages.each do |message|
       .col.message-container
