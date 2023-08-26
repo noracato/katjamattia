@@ -1,7 +1,11 @@
 
 .container:has(> .ranking)
   background: $purple
-  justify-content: normal
+  justify-content: space-between
+  overflow: hidden
+
+  .ranking
+    overflow: scroll
 
 .title
   font-size: 11rem

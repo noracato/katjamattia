@@ -12,8 +12,6 @@ export default class extends Controller {
   setHeight() {
     let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     let footerHeight = this.footerTarget.clientHeight
-    console.log(h)
-    console.log(footerHeight)
     this.listTarget.style.height = (h - footerHeight - 10) + "px"
   }
 
