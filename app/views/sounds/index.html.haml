@@ -1,0 +1,33 @@
+.title SOUND
+
+.sounds-boxes.col{data: {controller: 'sounds'}}
+  .row.boxes
+    .box.blue-bg{data: {action: "click->sounds#play"}}= audio_tag "goodbye.mp3"
+    .box.purple-bg
+    .box.orange-bg
+  .row.boxes
+    .box.orange-bg
+    .box.white-bg
+    .box.purple-bg
+  .row.boxes
+    .box.blue-bg
+    .box.blue-bg
+    .box.white-bg
+  .row.boxes
+    .box.purple-bg
+    .box.orange-bg
+    = link_to root_path, class: 'box white-bg back' do
+      :plain
+        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.8 23.6">
+          <defs>
+          <style>
+            .cls-1 {
+            fill: #1e1e1e;
+            stroke-width: 0px;
+            }
+          </style>
+          </defs>
+          <g id="Layer_1-2" data-name="Layer 1">
+          <polygon class="cls-1" points="11.8 0 0 11.8 11.8 23.6 11.8 0"/>
+          </g>
+        </svg>

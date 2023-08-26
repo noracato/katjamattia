@@ -11,5 +11,5 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( controllers/hello_controller.js controllers/index.js controllers/scoring_controller.js controllers/game_controller.js controllers/messages_controller.js )
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+Rails.application.config.assets.precompile += %w( controllers/hello_controller.js controllers/index.js controllers/scoring_controller.js controllers/game_controller.js controllers/messages_controller.js controllers/sounds_controller.js)
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|mp3)\z/

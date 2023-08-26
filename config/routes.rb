@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/ranking', to: 'ranking#index'
   get '/ranking/live', to: 'ranking#live'
 
+  get '/sounds', to: 'sounds#index'
+
   resources :guests, only: [:index, :create, :new, :destroy]
 
   resources :guests do
