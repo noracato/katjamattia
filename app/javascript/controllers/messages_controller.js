@@ -66,7 +66,7 @@ export default class extends Controller {
 
   onScroll() {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop
-    if (this.lastScroll < currentScroll) {
+    if (this.lastScroll < currentScroll && currentScroll > 0) {
       this.footerTarget.classList.add('down')
     } else {
       this.footerTarget.classList.remove('down')
