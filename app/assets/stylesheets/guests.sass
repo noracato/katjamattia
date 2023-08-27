@@ -49,11 +49,19 @@
 .container:has(> .add-guest)
   background: $orange
   justify-content: normal
+  height: 100vh
   .add-guest
     padding: 2rem
     font-family: "Helvetica"
     font-size: 2rem
     font-weight: 200
+
+    .guest_name, .row
+      display: flex
+      justify-content: space-between
+      margin-bottom: 2rem
+      input
+        width: 50vw
 
     .button
       font-size: 1rem
