@@ -3,19 +3,9 @@
 
   display: block
   overflow-x: hidden
-  overflow: hidden
-
-  .scrollable
-    overflow: scroll
-    height: calc( 100vh -  100px)
 
   .ranking
-    // justify-content: space-between
     height: 100vh
-    overflow: hidden
-
-  // .listings
-  //   margin-bottom: 100px
 
 .title
   font-size: 11rem
@@ -40,10 +30,8 @@
 .highlight
   color: $light
 
-
-
 .overlay
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   height: 100vh
@@ -90,11 +78,11 @@
       animation: face 2s
   &.wtf-desc
     top: 0
+    position: absolute
     transition: top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
     &.hidden
       top: 100vh
       height: 0
-
       .col
         padding: 0
     .col
@@ -108,6 +96,7 @@
     display: none
 
   height: 100px
+  z-index: 20
 
   .back-button
     padding: 0.25rem

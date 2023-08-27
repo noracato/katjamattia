@@ -1,4 +1,6 @@
 class RankingController < ApplicationController
+  layout "game", :only => [ :index ]
+
   def index
     @guests = Guest.ranked
     @last_change_id = PointEvent.last&.id || 0
