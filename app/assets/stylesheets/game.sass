@@ -1,14 +1,21 @@
-
 .container:has(> .ranking)
   background: $purple
-  justify-content: space-between
+
+  display: block
+  overflow-x: hidden
+  overflow: hidden
+
+  .scrollable
+    overflow: scroll
+    height: calc( 100vh -  100px)
 
   .ranking
-    margin-bottom: 100px
-    overflow: scroll
-    .listings:
-      height: 100%
-      margin-bottom: 100px
+    // justify-content: space-between
+    height: 100vh
+    overflow: hidden
+
+  // .listings
+  //   margin-bottom: 100px
 
 .title
   font-size: 11rem
@@ -41,7 +48,6 @@
   left: 0
   height: 100vh
   width: 100vw
-  overflow: hidden
   opacity: 100%
   transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
 
@@ -88,6 +94,9 @@
     &.hidden
       top: 100vh
       height: 0
+
+      .col
+        padding: 0
     .col
       padding: 2rem
     .exit
@@ -114,22 +123,22 @@
     font-size: 6rem
     padding: 0.3rem 1rem
 
-  @keyframes star
-    from
-      bottom: -10vw
-    to
-      bottom: 40vh
-      transform: rotate(-80deg)
+@keyframes star
+  from
+    bottom: -10vw
+  to
+    bottom: 40vh
+    transform: rotate(-80deg)
 
-  @keyframes face
-    from
-      bottom: 9rem
-    40%
-      bottom: 10rem
-    50%
-      bottom: 9.5rem
-    90%
-      bottom: 10rem
-    to
-      bottom: 9rem
+@keyframes face
+  from
+    bottom: 9rem
+  40%
+    bottom: 10rem
+  50%
+    bottom: 9.5rem
+  90%
+    bottom: 10rem
+  to
+    bottom: 9rem
 

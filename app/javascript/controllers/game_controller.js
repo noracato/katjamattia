@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     this.last_change_id = this.element.getAttribute('data-lastchange');
     this.interval = setInterval(this.getNewRank.bind(this), 5000);
-    this.element.parentElement.style.height = window.innerHeight + "px"
+    // this.element.parentElement.style.height = window.innerHeight + "px"
   }
 
   disconnect() {
