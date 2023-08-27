@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['list', 'form', 'footer']
+  static targets = ['list', 'form', 'footer', 'name', 'mess']
 
   connect() {
     this.last_message_id = this.element.getAttribute('data-lastmessage');
@@ -65,6 +65,10 @@ export default class extends Controller {
   }
 
   onScroll() {
+    if (document.activeElement === this.nameTarget || document.activeElement === this.messTarget) {
+      return
+    }
+
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop
     if (this.lastScroll < currentScroll && currentScroll > 0) {
       this.footerTarget.classList.add('down')

@@ -12,8 +12,8 @@
     .blocky.keep-right.dark-bg
     .form.col
       = simple_form_for :message, remote: true, html: {'data-messages-target': 'form', 'data-action': "turbo:submit-end->messages#handleSubmit"} do |f|
-        = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
-        = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' }, grid_wrapper_html: { class: 'col-sm-6 '}
+        = f.input :name, label: false, placeholder: "Name...", input_html: { class: 'namebox white-bg', data: {'messages-target': 'name'} }, grid_wrapper_html: { class: 'col-sm-6 '}
+        = f.input :message, as: :text, label:false, placeholder: "Message...", input_html: { class: 'textbox white-bg' , data: {'messages-target': 'mess'}}, grid_wrapper_html: { class: 'col-sm-6 '}
         .row
           = link_to root_path, class: 'back' do
             .inner
