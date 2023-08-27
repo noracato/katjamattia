@@ -7,6 +7,8 @@ export default class extends Controller {
     this.last_message_id = this.element.getAttribute('data-lastmessage');
     this.interval = setInterval(this.getNewMessage.bind(this), 5000);
     this.setHeight()
+    window.addEventListener('scroll', this.onScroll.bind(this))
+    this.lastScroll = window.pageYOffset || document.documentElement.scrollTop
   }
 
   setHeight() {
@@ -60,5 +62,15 @@ export default class extends Controller {
     container.appendChild(mess);
     container.appendChild(time);
     this.listTarget.prepend(container);
+  }
+
+  onScroll() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop
+    if (this.lastScroll < currentScroll) {
+      this.footerTarget.classList.add('down')
+    } else {
+      this.footerTarget.classList.remove('down')
+    }
+    this.lastScroll = currentScroll
   }
 }

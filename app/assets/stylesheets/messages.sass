@@ -40,6 +40,10 @@
     overflow-x: hidden
     position: fixed
     bottom: 0
+    transition: bottom 1s cubic-bezier(0.215, 0.61, 0.355, 1)
+    &.down
+      bottom: -50vh
+
     .form
       padding-top: 1.7rem
       width: 100vw
@@ -69,19 +73,19 @@
       flex-direction: column
 
     .back
-      margin: 0 0 0 auto
+      margin: 0 auto 0 0
 
       padding: 2px 2px 2px 0
       .inner
         padding: 0.6rem 1.4rem
-        width: 20px
+        width: 15px
         border-bottom: 1px solid $dark
         border-left: 1px solid $dark
     .button-send
-      border: none
-      margin: 0 auto 0 0
+      border: none !important
+      margin: 0 0 0 auto
       padding: 1rem 2rem
-      border-radius: 0
+      border-radius: 0 !important
       font-size: 1.5rem !important
       font-weight: 200 !important
       color: $light
