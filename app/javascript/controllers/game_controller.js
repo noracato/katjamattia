@@ -58,8 +58,12 @@ export default class extends Controller {
     this.footerTarget.classList.remove('hidden');
     this.addTarget.classList.add('hidden');
     this.removedTarget.classList.add('hidden');
-    this.addTarget.querySelector('.icon').classList.remove('active');
+    // Based on fade out transition time of overlay
+    setTimeout(() => {
+      this.addTarget.querySelector('.icon').classList.remove('active');
     this.removedTarget.querySelector('.icon').classList.remove('active');
+    }, 800)
+
   }
 
   reorderPeople(order_data) {
