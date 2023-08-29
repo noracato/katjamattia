@@ -1,0 +1,60 @@
+.coming-soon
+  position: absolute
+  width: 100vw
+  height: 100vh
+  background: $blue
+  left: 0
+  transition: left 1.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+  overflow: hidden
+
+  &.fade
+    left: 100vw
+
+  .content
+    position: absolute
+    width: 100vw
+    height: 100vh
+    z-index: 2
+
+  .logo
+    margin-top: 7rem
+    margin-bottom: 7rem
+
+  .slogan
+    text-align: center
+    line-height: 0.55
+    font-size: 6rem
+
+  .description
+    font-size: 3.5rem
+    position: absolute
+    bottom: 1rem
+    left: 1rem
+
+  .ball
+    border-radius: 100%
+    height: 2rem
+    width: 2rem
+    position: absolute
+    top: 50vh
+    left: 20vh
+    z-index: 1
+    animation: big-small 20s cubic-bezier(0.215, 0.61, 0.355, 1) infinite
+
+
+  @keyframes big-small
+    from
+      height: 6rem
+      width: 6rem
+    25%
+      height: 12rem
+      width: 12rem
+    40%
+      height: 9rem
+      width: 9rem
+    80%
+      height: 20rem
+      width: 20rem
+    to
+      height: 6rem
+      width: 6rem
