@@ -1,10 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['ball', 'content', 'description']
+  static targets = ['ball', 'content']
 
   connect() {
-    // this.descriptionTarget.style.bottom = 'calc(100vh - '+ window.innerHeight + "px + 1rem)"
+    this.element.style.height = window.innerHeight + "px"
+    this.contentTarget.style.height = window.innerHeight + "px"
 
     this.directionX = Math.random() < 0.5 ? -1 : 1
     this.directionY = Math.random() < 0.5 ? -1 : 1
