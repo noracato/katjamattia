@@ -1,20 +1,27 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['ball']
+  static targets = ['ball', 'content']
 
   connect() {
-    this.directionX = 1
-    this.directionY = 1
+    this.directionX = Math.random() < 0.5 ? -1 : 1
+    this.directionY = Math.random() < 0.5 ? -1 : 1
     this.speed = 1
     this.ballMoving = setInterval(this.moveBall.bind(this), 10)
   }
 
   destroy() {
-    this.element.classList.add('fade')
+    this.contentTarget.classList.add('fade')
     clearInterval(this.ballMoving)
+    this.bigBall()
 
-    setTimeout(() => {this.element.remove()}, 2000)
+    setTimeout(() => {
+      this.element.classList.add('fade')
+    }, 1500)
+
+    setTimeout(() => {
+      this.element.remove()
+    }, 3500)
   }
 
   moveBall(){
@@ -36,6 +43,11 @@ export default class extends Controller {
 
     this.ballTarget.style.top = offSetTop + (this.speed * this.directionY) + 'px'
     this.ballTarget.style.left = offSetLeft + (this.speed * this.directionX) + 'px'
+  }
+
+  bigBall() {
+    this.ballTarget.classList.remove('initial')
+    this.ballTarget.classList.add('blow-up')
   }
 }
 

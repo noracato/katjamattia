@@ -29,7 +29,7 @@ export default class extends Controller {
     if (data['last_change']['id'] > this.last_change_id){
         this.last_change_id = data['last_change']['id'];
         this.setOverlay(data['last_change']);
-        setTimeout(() => { this.removeOverlays() }, 2000);
+        setTimeout(() => { this.removeOverlays() }, 3000);
 
         let pointsGuest = document.getElementById(data['last_change']['guest']).querySelector('.points');
         let newPoints = parseInt(pointsGuest.textContent) + parseInt(data['last_change']['points']);
