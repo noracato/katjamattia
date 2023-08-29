@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['ball', 'content', 'description']
 
   connect() {
-    this.descriptionTarget.style.bottom = 'calc(100vh - '+ window.innerHeight + "px + 1rem)"
+    // this.descriptionTarget.style.bottom = 'calc(100vh - '+ window.innerHeight + "px + 1rem)"
 
     this.directionX = Math.random() < 0.5 ? -1 : 1
     this.directionY = Math.random() < 0.5 ? -1 : 1
