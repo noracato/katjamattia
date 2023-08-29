@@ -64,9 +64,14 @@
         resize: none
 
     .textbox
-      height: 10vh
+      // height = total - boxes - namefield - margin - buttons - padding
+      height: calc(220px - 1.7rem - 1.7rem - 2px - 60px - 8px)
       margin: 2px auto 0 auto
       font-family: "Helvetica"
+
+    .namebox
+      // padding is 4px so -8px
+      height: calc(1.7rem - 8px)
 
     .input:has(> textarea), .input:has(> input)
       display: flex
@@ -82,6 +87,7 @@
         border-bottom: 1px solid $dark
         border-left: 1px solid $dark
     .button-send
+      height: 60px
       border: none !important
       margin: 0 0 0 auto
       padding: 1rem 2rem
