@@ -4,6 +4,8 @@ export default class extends Controller {
   static targets = ['ball', 'content']
 
   connect() {
+    this.element.style.height = window.innerHeight + "px"
+
     this.directionX = Math.random() < 0.5 ? -1 : 1
     this.directionY = Math.random() < 0.5 ? -1 : 1
     this.speed = 1
@@ -25,7 +27,7 @@ export default class extends Controller {
   }
 
   moveBall(){
-    let ballSize = this.ballTarget.style.height
+    let ballSize = this.ballTarget.offsetHeight
     let offSetTop = this.ballTarget.offsetTop
     let offSetLeft = this.ballTarget.offsetLeft
 
