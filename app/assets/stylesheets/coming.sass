@@ -6,7 +6,7 @@
   opacity: 100%
   transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1)
   overflow: hidden
-  animation: color 20s infinite
+  animation: color 30s infinite
 
   &.fade
     opacity: 0
@@ -50,10 +50,9 @@
       top: 50vh
       left: 20vh
     &.blow-up
-      animation-duration: 0s
-      transform: scale(50)
-      transform-origin: center
-      transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1), top 1s cubic-bezier(0.215, 0.61, 0.355, 1), left 1s cubic-bezier(0.215, 0.61, 0.355, 1)
+      animation-play-state: paused
+      transform: scale(10)
+      transition: transform 6s cubic-bezier(0.215, 0.61, 0.355, 1), top 1s cubic-bezier(0.215, 0.61, 0.355, 1), left 1s cubic-bezier(0.215, 0.61, 0.355, 1)
 
 
   @keyframes big-small

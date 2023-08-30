@@ -26,7 +26,9 @@ export default class extends Controller {
   }
 
   submitPoints() {
-    // console.log(JSON.stringify({points: this.pointsDifference()}));
+    // Don't submit if there was no change
+    if (this.pointsDifference() == 0) {return}
+
     fetch(this.submitTarget.getAttribute('data-postto') + "?points=" + this.pointsDifference(), {
       method: 'POST',
       credentials: 'same-origin',
