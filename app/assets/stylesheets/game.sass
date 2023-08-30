@@ -79,10 +79,10 @@
       animation: face 3s
   &.wtf-desc
     top: 0
-    transition: top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+    transition: top 1s cubic-bezier(0.215, 0.61, 0.355, 1)
     &.hidden
       top: 100vh
-      height: 0
+      opacity: 100%
       .col
         padding: 0
     .col
@@ -92,8 +92,9 @@
       color: $light
       border: 1px solid $light
       border-radius: 50%
-      padding: 0.3rem 1.5rem
-      margin-bottom: 0.5rem
+      padding: 0.3rem 1.3rem
+      margin-bottom: 2rem
+      font-size: 3.2rem
 
 .row.wtf
   &.hidden
