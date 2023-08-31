@@ -9,6 +9,9 @@ export default class extends Controller {
     this.setHeight()
     window.addEventListener('scroll', this.onScroll.bind(this))
     this.lastScroll = window.pageYOffset || document.documentElement.scrollTop
+
+    this.hearts = localStorage.getItem("katjamattia-hearts").split(',') || []
+    this.fillHearts()
   }
 
   setHeight() {
@@ -76,5 +79,40 @@ export default class extends Controller {
       this.footerTarget.classList.remove('down')
     }
     this.lastScroll = currentScroll
+  }
+
+  fillHearts() {
+    for (let i = 0; i < this.hearts.length; i++){
+      let heartContainer = document.getElementById(this.hearts[i])
+      this.fillHeart(heartContainer);
+    }
+  }
+
+  switchHeart(e) {
+    let heartContainer = e.target.closest(".heart");
+
+    if (heartContainer.getAttribute('data-marked') == 0) {
+      this.fillHeart(heartContainer)
+      this.hearts.push(heartContainer.id)
+    } else {
+      this.unfillHeart(heartContainer)
+      const index = this.hearts.indexOf(heartContainer.id);
+      if (index > -1) { // only splice array when item is found
+        this.hearts.splice(index, 1); // 2nd parameter means remove one item only
+      }
+    }
+    localStorage.setItem("katjamattia-hearts", this.hearts);
+  }
+
+  fillHeart(heartContainer) {
+    heartContainer.setAttribute('data-marked', 1)
+    heartContainer.querySelector('.closed').classList.remove('hidden');
+    heartContainer.querySelector('.open').classList.add('hidden');
+  }
+
+  unfillHeart(heartContainer) {
+    heartContainer.setAttribute('data-marked', 0)
+    heartContainer.querySelector('.closed').classList.add('hidden');
+    heartContainer.querySelector('.open').classList.remove('hidden');
   }
 }

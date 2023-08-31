@@ -3,7 +3,23 @@
   .list-messages.col{data: {messages: {target: 'list'}}}
     - @messages.each do |message|
       .col.message-container
-        .row.name= message.name
+        .row.name
+          = message.name
+          .heart{id: message.id, data: {action: 'click->messages#switchHeart', marked: 0}}
+            .closed.hidden
+              :plain
+                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.34 18.29">
+                  <g id="Layer_2-2" data-name="Layer 2">
+                    <path d="m20.34,1.19c-2.2-1.82-5.49-1.49-7.51.53l-1.66,1.66-1.66-1.66C7.49-.3,4.21-.63,2,1.19-.53,3.28-.66,7.04,1.6,9.3l8.59,8.59c.54.54,1.41.54,1.95,0l6.77-6.77,1.82-1.82c2.26-2.26,2.13-6.02-.4-8.1Z"/>
+                  </g>
+                </svg>
+            .open
+              :plain
+                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.34 18.29">
+                  <g id="Layer_2-2" data-name="Layer 2">
+                    <path d="m5.38,1c1.27,0,2.52.52,3.43,1.43l1.66,1.66.71.71.71-.71,1.66-1.66c.91-.91,2.16-1.43,3.43-1.43,1.03,0,1.97.33,2.74.97.99.82,1.57,1.97,1.63,3.25.06,1.26-.42,2.49-1.31,3.38l-1.82,1.82-6.77,6.77c-.1.1-.21.11-.27.11s-.17-.01-.27-.11L2.31,8.59c-.89-.89-1.37-2.12-1.31-3.38.06-1.27.64-2.43,1.63-3.25.76-.63,1.71-.97,2.74-.97m0-1c-1.2,0-2.4.38-3.38,1.19C-.53,3.28-.66,7.04,1.6,9.3l8.59,8.59c.27.27.62.4.98.4s.71-.13.98-.4l6.77-6.77,1.82-1.82c2.26-2.26,2.13-6.02-.4-8.1C19.35.39,18.16,0,16.96,0,15.46,0,13.95.6,12.82,1.72l-1.66,1.66-1.66-1.66c-1.12-1.12-2.63-1.72-4.13-1.72h0Z"/>
+                  </g>
+                </svg>
         .row.message= message.message
         .row.time= message.created_at.in_time_zone('CET').strftime("%H:%M")
 
