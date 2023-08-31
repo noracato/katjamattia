@@ -18,18 +18,18 @@ export default class extends Controller {
     clearInterval(this.ballMoving)
     this.bigBall()
 
-    // bigBall transition takes 6000
-    // stay for 500 -> remove elem at 6500
-    // full thing fading takes 4000
-    // 6500 - 2000 = start fade at 2500
+    // bigBall transition takes 5000
+    // stay for 100 -> remove elem at 5100
+    // full thing fading takes 2000
+    // 5100 - 2000 = start fade at 3200
 
     setTimeout(() => {
       this.element.classList.add('fade')
-    }, 4500)
+    }, 3100)
 
     setTimeout(() => {
       this.element.remove()
-    }, 6500)
+    }, 5100)
   }
 
   moveBall(){
