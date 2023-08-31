@@ -17,6 +17,19 @@
   padding: 1rem
   margin-bottom: 0.5rem
 
+  .change
+    opacity: 100
+    width: 4rem
+    margin-left: 1.3rem
+    margin-top: 0.7rem
+    transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+    &.hidden
+      opacity: 0
+    &.up
+      background: url('up.svg') no-repeat center
+    &.down
+      background: url('down.svg') no-repeat center
+
   .points
     margin-left: auto
 

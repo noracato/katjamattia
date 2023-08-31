@@ -6,11 +6,19 @@ export default class extends Controller {
   connect() {
     this.last_change_id = this.element.getAttribute('data-lastchange');
     this.interval = setInterval(this.getNewRank.bind(this), 5000);
-    // this.element.parentElement.style.height = window.innerHeight + "px"
+    this.currentOrder = []
+    this.buildCurrentOrder()
   }
 
   disconnect() {
     clearInterval(this.interval);
+  }
+
+  buildCurrentOrder() {
+    let guests = this.element.querySelectorAll('.guest')
+    for (let i =0; i < guests.length; i++){
+      this.currentOrder.push(parseInt(guests[i].id))
+    }
   }
 
   getNewRank() {
@@ -67,12 +75,34 @@ export default class extends Controller {
   }
 
   reorderPeople(order_data) {
+    let newOrder = []
+    // overlay stays 3000, so we can remove the up down at 6000
+    let timefactor = 6000;
+
     for (let i = 0; i < order_data.length; i++){
-        let guest = document.getElementById(order_data[i]['id']);
+        let guestId = order_data[i]['id'];
+        let guest = document.getElementById(guestId);
         guest.querySelector('.index').textContent = "#" + (i + 1);
         this.listingsTarget.appendChild(guest);
+        newOrder.push(guestId);
+
+        let change = guest.querySelector('.change');
+        if (this.currentOrder.indexOf(guestId) > i){
+          change.classList.remove('down');
+          change.classList.add('up');
+          change.classList.remove('hidden');
+        } else if (this.currentOrder.indexOf(guestId) < i) {
+          change.classList.remove('up');
+          change.classList.add('down');
+          change.classList.remove('hidden');
+        } else {
+          change.classList.add('hidden');
+        }
     }
+    this.currentOrder = newOrder;
   }
+
+
 
   wtf(){
     this.wtfTarget.classList.remove('hidden');
