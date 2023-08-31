@@ -10,7 +10,8 @@ export default class extends Controller {
     window.addEventListener('scroll', this.onScroll.bind(this))
     this.lastScroll = window.pageYOffset || document.documentElement.scrollTop
 
-    this.hearts = localStorage.getItem("katjamattia-hearts").split(',') || []
+    let storage = localStorage.getItem("katjamattia-hearts")
+    this.hearts = storage ? storage.split(',') : []
     this.fillHearts()
   }
 
