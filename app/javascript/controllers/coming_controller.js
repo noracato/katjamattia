@@ -4,6 +4,11 @@ export default class extends Controller {
   static targets = ['ball', 'content']
 
   connect() {
+    let alreadyViewed = localStorage.getItem("katjamattia-welcome") || 0;
+    if (alreadyViewed == 1){
+      this.element.remove();
+    }
+
     this.element.style.height = window.innerHeight + "px"
     this.contentTarget.style.height = window.innerHeight + "px"
 
@@ -14,6 +19,8 @@ export default class extends Controller {
   }
 
   destroy() {
+    localStorage.setItem("katjamattia-welcome", 1);
+
     this.contentTarget.classList.add('fade')
     clearInterval(this.ballMoving)
     this.bigBall()
